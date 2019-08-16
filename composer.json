@@ -2,7 +2,7 @@
     "name": "ukiepro/yii2-queue",
     "description": "Queue component for Yii2",
     "license": "MIT",
-    "version": "1.3.5",
+    "version": "1.3.6",
     "authors": [
         {
             "name": "Ukiepro",
