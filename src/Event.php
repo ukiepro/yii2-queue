@@ -5,7 +5,7 @@
  * @since 2016.01.16
  */
 
-namespace Vlodkow\Yii2\Queue;
+namespace Ukiepro\Yii2\Queue;
 
 /**
  * @author Petra Barus <petra.barus@gmail.com>

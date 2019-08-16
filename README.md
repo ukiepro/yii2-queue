@@ -14,17 +14,17 @@ Either run, add:
 "repositories": [{
     "type": "package",
     "package": {
-      "name": "vlodkow/yii2-queue",
-      "version": "1.3.2",
+      "name": "ukiepro/yii2-queue",
+      "version": "1.3.6",
       "source": {
-        "url": "git@github.com:vlodkow/yii2-queue.git",
+        "url": "git@github.com:ukiepro/yii2-queue.git",
         "type": "git",
-        "reference": "1.3.2"
+        "reference": "1.3.6"
       }
     }
   }],
   "require": {
-    "vlodkow/yii2-queue": "1.3.*"
+    "ukiepro/yii2-queue": "1.3.*"
   }
 ```
 
@@ -41,7 +41,7 @@ After the installation, first step is to set the console controller (config/cons
 return [
     // ...
     'controllerMap' => [
-        'queue' => 'Vlodkow\Yii2\Queue\Console\Controller',
+        'queue' => 'Ukiepro\Yii2\Queue\Console\Controller',
         'sleep' => 2,
         'rocket_chat_url' => ''
     ],
@@ -64,7 +64,7 @@ the task in the component (config/console.php and config/web.php). For example, 
 ```php
 'components' => [
     'queue' => [
-        'class' => 'Vlodkow\Yii2\Queue\Queues\SqsQueue',
+        'class' => 'Ukiepro\Yii2\Queue\Queues\SqsQueue',
         'module' => 'task',
         'url' => 'https://sqs.ap-southeast-1.amazonaws.com/123456789012/queue',
 		'config' => [
@@ -85,7 +85,7 @@ Or using Database queue
         //the db component
     ],
     'queue' => [
-        'class' => 'Vlodkow\Yii2\Queue\Queues\DbQueue',
+        'class' => 'Ukiepro\Yii2\Queue\Queues\DbQueue',
         'db' => 'db',
         'tableName' => 'queue',
         'module' => 'task',
@@ -100,12 +100,12 @@ For mysql import table from db.sql
 ### Creating A Worker
 
 Creating a worker is just the same with creating console or web controller.
-In the task module create a controller that extends `Vlodkow\Yii2\Queue\Worker\Controller`
+In the task module create a controller that extends `Ukiepro\Yii2\Queue\Worker\Controller`
 
 e.g.
 
 ```php
-class FooController extends Vlodkow\Yii2\Queue\Worker\Controller {
+class FooController extends Ukiepro\Yii2\Queue\Worker\Controller {
 
     public function actionBar($param1, $param2){
         echo $param1;
@@ -120,7 +120,7 @@ chance.
 e.g.
 
 ```php
-class FooController extends Vlodkow\Yii2\Queue\Worker\Controller {
+class FooController extends Ukiepro\Yii2\Queue\Worker\Controller {
 
     public function actionBar($param1, $param2){
         try {
@@ -146,7 +146,7 @@ yii queue/listen
 To post a job from source code, put something like this.
 
 ```php
-use Vlodkow\Yii2\Queue\Job;
+use Ukiepro\Yii2\Queue\Job;
 
 $route = 'foo/bar';
 $data = ['param1' => 'foo', 'param2' => 'bar'];
@@ -179,7 +179,7 @@ To use this, add behavior in a component and implement the defined event handler
     public function behaviors() {
         return array_merge([
             [
-                'class' => \Vlodkow\Yii2\Queue\Behaviors\DeferredEventBehavior::class,
+                'class' => \Ukiepro\Yii2\Queue\Behaviors\DeferredEventBehavior::class,
                 'events' => [
                     self::EVENT_AFTER_VALIDATE => 'deferAfterValidate',
                 ]
@@ -200,7 +200,7 @@ behavior and the event attached in the original object.
 
 As for `ActiveRecord` class, since the object can not be passed due to limitation
 of SuperClosure in serializing PDO (I personally think that's bad too), the
-behavior should use `\Vlodkow\Yii2\Queue\Behaviors\ActiveRecordDeferredEventBehavior`
+behavior should use `\Ukiepro\Yii2\Queue\Behaviors\ActiveRecordDeferredEventBehavior`
 instead. The difference is in the object in which the deferred event handler
 invoked.
 
@@ -211,7 +211,7 @@ object whose attributes are assigned from the attributes of the original object.
 
 ### Web End Point
 
-We can use web endpoint to use the queue by adding `\Vlodkow\Yii2\Queue\Web\Controller`
+We can use web endpoint to use the queue by adding `\Ukiepro\Yii2\Queue\Web\Controller`
 to the controller map.
 
 For example
@@ -219,8 +219,8 @@ For example
 ```php
     'controllerMap' => [
         'queue' => [
-            /* @var $queue Vlodkow\Yii2\Queue\Web\Controller */
-            'class' => 'Vlodkow\Yii2\Queue\Web\Controller',
+            /* @var $queue Ukiepro\Yii2\Queue\Web\Controller */
+            'class' => 'Ukiepro\Yii2\Queue\Web\Controller',
         ]
     ],
 ```
@@ -238,8 +238,8 @@ For example to filter by IP address, we can use something like this.
 ```php
     'controllerMap' => [
         'queue' => [
-            /* @var $queue Vlodkow\Yii2\Queue\Web\Controller */
-            'class' => 'Vlodkow\Yii2\Queue\Web\Controller',
+            /* @var $queue Ukiepro\Yii2\Queue\Web\Controller */
+            'class' => 'Ukiepro\Yii2\Queue\Web\Controller',
             'as access' => [
                 'class' => '\yii\filters\AccessControl',
                 'rules' => [

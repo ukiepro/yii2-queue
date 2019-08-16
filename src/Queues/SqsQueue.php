@@ -6,10 +6,10 @@
  * @since 2015.02.24
  */
 
-namespace Vlodkow\Yii2\Queue\Queues;
+namespace Ukiepro\Yii2\Queue\Queues;
 
 use \Aws\Sqs\SqsClient;
-use Vlodkow\Yii2\Queue\Job;
+use Ukiepro\Yii2\Queue\Job;
 
 /**
  * SqsQueue provides queue for AWS SQS.
@@ -17,7 +17,7 @@ use Vlodkow\Yii2\Queue\Job;
  * @author Petra Barus <petra.barus@gmail.com>
  * @since 2015.02.24
  */
-class SqsQueue extends \Vlodkow\Yii2\Queue\Queue
+class SqsQueue extends \Ukiepro\Yii2\Queue\Queue
 {
 
     /**
@@ -79,7 +79,7 @@ class SqsQueue extends \Vlodkow\Yii2\Queue\Queue
      * Create job from SQS message.
      *
      * @param array $message The message.
-     * @return \Vlodkow\Yii2\Queue\Job
+     * @return \Ukiepro\Yii2\Queue\Job
      */
     private function createJobFromMessage($message)
     {

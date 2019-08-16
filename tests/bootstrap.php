@@ -14,7 +14,7 @@ $config = [
             'dsn' => 'sqlite::memory:',
         ],
         'queue' => [
-            'class' => '\Vlodkow\Yii2\Queue\Queues\MemoryQueue'
+            'class' => '\Ukiepro\Yii2\Queue\Queues\MemoryQueue'
         ]
     ]
 ];

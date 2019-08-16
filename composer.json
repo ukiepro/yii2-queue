@@ -25,7 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Vlodkow\\Yii2\\Queue\\": "src/"
+            "Ukiepro\\Yii2\\Queue\\": "src/"
         }
     }
 

@@ -12,7 +12,7 @@ class ActiveRecordDeferredEventHandlerTest extends PHPUnit_Framework_TestCase {
     
     public function testEventHandlerInActiveRecord() {
         $queue = Yii::$app->queue;
-        /* @var $queue \Vlodkow\Yii2\Queue\Queues\MemoryQueue */
+        /* @var $queue \Ukiepro\Yii2\Queue\Queues\MemoryQueue */
         $this->assertEquals(0, $queue->getSize());
         $object1 = new ActiveRecordDeferredEventHandlerTestActiveRecord();
         $object1->id = 1;
@@ -43,7 +43,7 @@ class ActiveRecordDeferredEventHandlerTest extends PHPUnit_Framework_TestCase {
     
 }
 
-class ActiveRecordDeferredEventHandlerImpl extends \Vlodkow\Yii2\Queue\Behaviors\ActiveRecordDeferredEventHandler {
+class ActiveRecordDeferredEventHandlerImpl extends \Ukiepro\Yii2\Queue\Behaviors\ActiveRecordDeferredEventHandler {
     public function handleEvent($owner) {
         $owner->updateModel();
         return true;

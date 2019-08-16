@@ -5,16 +5,16 @@
  * @since 2016.07.30
  */
 
-namespace Vlodkow\Yii2\Queue\Queues;
+namespace Ukiepro\Yii2\Queue\Queues;
 
-use Vlodkow\Yii2\Queue\Job;
-use Vlodkow\Yii2\Queue\Queue;
+use Ukiepro\Yii2\Queue\Job;
+use Ukiepro\Yii2\Queue\Queue;
 use yii\base\NotSupportedException;
 
 /**
  * Class DummyQueue
  * This class is used for running job created manually without queue.
- * @package Vlodkow\Yii2\Queue\Queues
+ * @package Ukiepro\Yii2\Queue\Queues
  */
 class DummyQueue extends Queue
 {

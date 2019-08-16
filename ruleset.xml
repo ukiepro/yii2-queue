@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruleset name="Vlodkow">
-    <description>Vlodkow Coding Standard</description>
+<ruleset name="Ukiepro">
+    <description>Ukiepro Coding Standard</description>
     
     <exclude-pattern>*/tests/*</exclude-pattern>
     <exclude-pattern>*/test/*</exclude-pattern>

@@ -12,7 +12,7 @@ class DeferredEventHandlerTest extends PHPUnit_Framework_TestCase {
     
     public function testEventHandlerInSimpleComponent() {
         $queue = Yii::$app->queue;
-        /* @var $queue \Vlodkow\Yii2\Queue\Queues\MemoryQueue */
+        /* @var $queue \Ukiepro\Yii2\Queue\Queues\MemoryQueue */
         $this->assertEquals(0, $queue->getSize());
         $component = new DeferredEventHandlerTestComponent();
         $component->recordId = 1;
@@ -33,7 +33,7 @@ class DeferredEventHandlerTest extends PHPUnit_Framework_TestCase {
     
     public function testEventHandlerInSimpleModel() {
         $queue = Yii::$app->queue;
-        /* @var $queue \Vlodkow\Yii2\Queue\Queues\MemoryQueue */
+        /* @var $queue \Ukiepro\Yii2\Queue\Queues\MemoryQueue */
         $this->assertEquals(0, $queue->getSize());
         $model = new DeferredEventHandlerTestModel();
         $model->recordId = 2;
@@ -53,7 +53,7 @@ class DeferredEventHandlerTest extends PHPUnit_Framework_TestCase {
     }
 }
 
-class DeferredEventHandlerImpl extends \Vlodkow\Yii2\Queue\Behaviors\DeferredEventHandler {
+class DeferredEventHandlerImpl extends \Ukiepro\Yii2\Queue\Behaviors\DeferredEventHandler {
     public function handleEvent($owner) {
         $owner->updateModel();
         return true;

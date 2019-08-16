@@ -6,7 +6,7 @@
  * @since 2015.02.24
  */
 
-namespace Vlodkow\Yii2\Queue;
+namespace Ukiepro\Yii2\Queue;
 
 /**
  * Job is model for a job message.

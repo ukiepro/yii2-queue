@@ -6,7 +6,7 @@
  * @since 2015.02.25
  */
 
-namespace Vlodkow\Yii2\Queue\Behaviors;
+namespace Ukiepro\Yii2\Queue\Behaviors;
 
 /**
  * DeferredEventInterface provides method interface for handling the deferred

@@ -6,9 +6,9 @@
  * @since 2015.02.25
  */
 
-namespace Vlodkow\Yii2\Queue\Strategies;
+namespace Ukiepro\Yii2\Queue\Strategies;
 
-use Vlodkow\Yii2\Queue\Job;
+use Ukiepro\Yii2\Queue\Job;
 
 /**
  * RandomStrategy provides random choosing of the queue for getting the job.

@@ -6,10 +6,10 @@
  * @since 2015.02.24
  */
 
-namespace Vlodkow\Yii2\Queue\Console;
+namespace Ukiepro\Yii2\Queue\Console;
 
-use Vlodkow\Yii2\Queue\Job;
-use Vlodkow\Yii2\Queue\Queue;
+use Ukiepro\Yii2\Queue\Job;
+use Ukiepro\Yii2\Queue\Queue;
 use yii\base\InvalidParamException;
 use \Curl\Curl;
 
@@ -21,7 +21,7 @@ use \Curl\Curl;
  * return [
  *    // ...
  *     'controllerMap' => [
- *         'queue' => 'Vlodkow\Yii2\Queue\Console\QueueController'
+ *         'queue' => 'Ukiepro\Yii2\Queue\Console\QueueController'
  *     ],
  * ];
  *
@@ -31,7 +31,7 @@ use \Curl\Curl;
  *    // ...
  *     'controllerMap' => [
  *         'queue' => [
- *              'class' => 'Vlodkow\Yii2\Queue\Console\QueueController',
+ *              'class' => 'Ukiepro\Yii2\Queue\Console\QueueController',
  *              'sleepTimeout' => 1
  *          ]
  *     ],
