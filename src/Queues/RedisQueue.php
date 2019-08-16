@@ -6,10 +6,10 @@
  * @since 2016.01.16
  */
 
-namespace Ukiepro\Yii2\Queue\Queues;
+namespace Vlodkow\Yii2\Queue\Queues;
 
 use yii\redis\Connection;
-use Ukiepro\Yii2\Queue\Job;
+use Vlodkow\Yii2\Queue\Job;
 
 /**
  * RedisQueue provides Redis storing for Queue.
@@ -21,7 +21,7 @@ use Ukiepro\Yii2\Queue\Job;
  * @author Petra Barus <petra.barus@gmail.com>
  * @since 2016.01.16
  */
-class RedisQueue extends \Ukiepro\Yii2\Queue\Queue
+class RedisQueue extends \Vlodkow\Yii2\Queue\Queue
 {
     /**
      * Stores the redis connection.

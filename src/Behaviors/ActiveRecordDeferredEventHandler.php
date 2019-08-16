@@ -4,7 +4,7 @@
  * @author Petra Barus <petra.barus@gmail.com>
  */
 
-namespace Ukiepro\Yii2\Queue\Behaviors;
+namespace Vlodkow\Yii2\Queue\Behaviors;
 
 use yii\db\ActiveRecord;
 
@@ -42,7 +42,7 @@ abstract class ActiveRecordDeferredEventHandler extends DeferredEventHandler
         $handler->owner = null;
         /* @var $queue Queue */
         if ($eventName == ActiveRecord::EVENT_AFTER_DELETE) {
-            $queue->post(new \Ukiepro\Yii2\Queue\Job([
+            $queue->post(new \Vlodkow\Yii2\Queue\Job([
                 'route' => function () use ($class, $pk, $attributes, $handler, $eventName, $scenario) {
                     $object = \Yii::createObject($class);
                     /* @var $object ActiveRecord */
@@ -53,7 +53,7 @@ abstract class ActiveRecordDeferredEventHandler extends DeferredEventHandler
             ]));
 
         } else {
-            $queue->post(new \Ukiepro\Yii2\Queue\Job([
+            $queue->post(new \Vlodkow\Yii2\Queue\Job([
                 'route' => function () use ($class, $pk, $attributes, $handler, $eventName, $scenario) {
                     $object = $class::findOne($pk);
                     if ($object === null) {

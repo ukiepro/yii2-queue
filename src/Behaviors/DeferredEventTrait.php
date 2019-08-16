@@ -5,10 +5,10 @@
  * @since 2015.06.12
  */
 
-namespace Ukiepro\Yii2\Queue\Behaviors;
+namespace Vlodkow\Yii2\Queue\Behaviors;
 
-use Ukiepro\Yii2\Queue\Job;
-use Ukiepro\Yii2\Queue\Queue;
+use Vlodkow\Yii2\Queue\Job;
+use Vlodkow\Yii2\Queue\Queue;
 
 /**
  * ActiveRecordDeferredEventBehavior is deferred event function for active record.
@@ -94,7 +94,7 @@ trait DeferredEventTrait
         $class = get_class($this);
         $attributes = $this->getAttributes();
         list($serializer, $serialized) = $this->serializeCallback($callback);
-        return new \Ukiepro\Yii2\Queue\Job([
+        return new \Vlodkow\Yii2\Queue\Job([
             'route' => function () use ($class, $attributes, $serialized, $serializer) {
                 $model = new $class;
                 $model->setAttributes($attributes, false);
@@ -112,7 +112,7 @@ trait DeferredEventTrait
     {
         $object = $this;
         list($serializer, $serialized) = $this->serializeCallback($callback);
-        return new \Ukiepro\Yii2\Queue\Job([
+        return new \Vlodkow\Yii2\Queue\Job([
             'route' => function () use ($object, $serialized, $serializer) {
                 $unserialized = $serializer->unserialize($serialized);
                 call_user_func($unserialized, $object);

@@ -18,7 +18,7 @@ class RedisQueueTest extends TestCase
                     'port' => 6379,
                 ],
                 'queue' => [
-                    'class' => '\Ukiepro\Yii2\Queue\Queues\RedisQueue',
+                    'class' => '\Vlodkow\Yii2\Queue\Queues\RedisQueue',
                     'key' => $queueName,
                 ]
             ]
@@ -27,7 +27,7 @@ class RedisQueueTest extends TestCase
     
     /**
      * 
-     * @return \Ukiepro\Yii2\Queue\Queues\RedisQueue
+     * @return \Vlodkow\Yii2\Queue\Queues\RedisQueue
      */
     public function getQueue()
     {
@@ -46,12 +46,12 @@ class RedisQueueTest extends TestCase
         $queue = $this->getQueue();
         $this->assertEquals(0, $this->getCountItems());
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             RedisQueueTest::$counter += 1;
         }]));
         $this->assertEquals(1, $this->getCountItems());
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             RedisQueueTest::$counter += 1;
         }]));
         $this->assertEquals(2, $this->getCountItems());
@@ -66,18 +66,18 @@ class RedisQueueTest extends TestCase
         $job = $queue->fetch();
         $this->assertFalse($job);
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             RedisQueueTest::$counter += 1;
         }]));
         $this->assertEquals(1, $this->getCountItems());
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             RedisQueueTest::$counter += 1;
         }]));
         $this->assertEquals(2, $this->getCountItems());
         
         $job = $queue->fetch();
-        $this->assertTrue($job instanceof \Ukiepro\Yii2\Queue\Job);
+        $this->assertTrue($job instanceof \Vlodkow\Yii2\Queue\Job);
 
         $this->assertEquals(1, $this->getCountItems());
     }
@@ -90,19 +90,19 @@ class RedisQueueTest extends TestCase
         
         $this->assertFalse($job);
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             RedisQueueTest::$counter += 1;
         }]));
         
         $job = $queue->fetch();
         
-        $this->assertTrue($job instanceof Ukiepro\Yii2\Queue\Job);
+        $this->assertTrue($job instanceof Vlodkow\Yii2\Queue\Job);
         
         $queue->run($job);
         
         $this->assertEquals(1, RedisQueueTest::$counter);
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             RedisQueueTest::$counter += 2;
         }]));
         
@@ -119,14 +119,14 @@ class RedisQueueTest extends TestCase
         $key = $queue->key;
         $this->assertEquals(0, $this->getCountItems());
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             RedisQueueTest::$counter += 1;
         }]));
         $this->assertEquals(1, $this->getCountItems());
         
         $job = $queue->fetch();
         
-        $this->assertTrue($job instanceof \Ukiepro\Yii2\Queue\Job);
+        $this->assertTrue($job instanceof \Vlodkow\Yii2\Queue\Job);
 
         $this->assertEquals(0, $this->getCountItems());
         

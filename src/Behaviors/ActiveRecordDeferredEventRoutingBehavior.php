@@ -6,7 +6,7 @@
  * @since 2015.02.25
  */
 
-namespace Ukiepro\Yii2\Queue\Behaviors;
+namespace Vlodkow\Yii2\Queue\Behaviors;
 
 use yii\db\ActiveRecord;
 
@@ -58,7 +58,7 @@ class ActiveRecordDeferredEventRoutingBehavior extends DeferredEventRoutingBehav
         unset($handler[0]);
         $handler['scenario'] = $this->owner->getScenario();
         $data = $handler;
-        $this->queue->post(new \Ukiepro\Yii2\Queue\Job([
+        $this->queue->post(new \Vlodkow\Yii2\Queue\Job([
             'route' => $route,
             'data' => $data
         ]));

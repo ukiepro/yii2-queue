@@ -6,7 +6,7 @@
  * @since 2015.02.24
  */
 
-namespace Ukiepro\Yii2\Queue\Worker;
+namespace Vlodkow\Yii2\Queue\Worker;
 
 use yii\base\InlineAction;
 

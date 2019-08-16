@@ -6,12 +6,12 @@
  * @since 2015.02.25
  */
 
-namespace Ukiepro\Yii2\Queue\Queues;
+namespace Vlodkow\Yii2\Queue\Queues;
 
-use Ukiepro\Yii2\Queue\Job;
-use Ukiepro\Yii2\Queue\Queue;
-use Ukiepro\Yii2\Queue\Strategies\Strategy;
-use Ukiepro\Yii2\Queue\Strategies\RandomStrategy;
+use Vlodkow\Yii2\Queue\Job;
+use Vlodkow\Yii2\Queue\Queue;
+use Vlodkow\Yii2\Queue\Strategies\Strategy;
+use Vlodkow\Yii2\Queue\Strategies\RandomStrategy;
 
 /**
  * MultipleQueue is a queue abstraction that handles multiple queue at once.
@@ -34,7 +34,7 @@ class MultipleQueue extends Queue
 
     /**
      * The job fetching strategy.
-     * @var \Ukiepro\Yii2\Queue\Strategies\Strategy
+     * @var \Vlodkow\Yii2\Queue\Strategies\Strategy
      */
     public $strategy = ['class' => RandomStrategy::class];
 
@@ -42,7 +42,7 @@ class MultipleQueue extends Queue
      * Initialize the queue.
      * @return void
      * @throws \yii\base\InvalidConfigException If the strategy doesn't implement
-     * Ukiepro\Yii2\Queue\Strategies\Strategy.
+     * Vlodkow\Yii2\Queue\Strategies\Strategy.
      */
     public function init()
     {
@@ -56,7 +56,7 @@ class MultipleQueue extends Queue
             $this->strategy = \Yii::createObject($this->strategy);
         } else if ($this->strategy instanceof Strategy) {
             throw new \yii\base\InvalidConfigException(
-                'The strategy field have to implement Ukiepro\Yii2\Queue\Strategies\Strategy'
+                'The strategy field have to implement Vlodkow\Yii2\Queue\Strategies\Strategy'
             );
         }
         $this->strategy->setQueue($this);

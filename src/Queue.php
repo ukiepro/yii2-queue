@@ -6,7 +6,7 @@
  * @since 2015.02.24
  */
 
-namespace Ukiepro\Yii2\Queue;
+namespace Vlodkow\Yii2\Queue;
 
 use Exception;
 

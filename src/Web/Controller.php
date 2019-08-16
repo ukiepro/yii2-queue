@@ -5,11 +5,11 @@
  * @author Petra Barus <petra.barus@gmail.com>
  */
 
-namespace Ukiepro\Yii2\Queue\Web;
+namespace Vlodkow\Yii2\Queue\Web;
 
-use Ukiepro\Yii2\Queue\Job;
-use Ukiepro\Yii2\Queue\Queue;
-use Ukiepro\Yii2\Queue\Queues\MultipleQueue;
+use Vlodkow\Yii2\Queue\Job;
+use Vlodkow\Yii2\Queue\Queue;
+use Vlodkow\Yii2\Queue\Queues\MultipleQueue;
 
 /**
  * QueueController is a web controller to post job via url.
@@ -17,7 +17,7 @@ use Ukiepro\Yii2\Queue\Queues\MultipleQueue;
  * To use this use a controller map.
  *
  *    'controllerMap' => [
- *         'queue' => 'Ukiepro\Yii2\Queue\Web\Controller',
+ *         'queue' => 'Vlodkow\Yii2\Queue\Web\Controller',
  *         'sleep' => 2
  *    ]
  *
@@ -39,7 +39,7 @@ class Controller extends \yii\web\Controller
     
     /**
      * The queue to process.
-     * @var string|array|\Ukiepro\Yii2\Queue\Queue
+     * @var string|array|\Vlodkow\Yii2\Queue\Queue
      */
     public $queue = 'queue';
     
@@ -84,7 +84,7 @@ class Controller extends \yii\web\Controller
     public function actionPost()
     {
         $job = $this->createJobFromRequest();
-        /* @var $queue \Ukiepro\Yii2\Queue\Queue */
+        /* @var $queue \Vlodkow\Yii2\Queue\Queue */
         if ($this->queue->post($job)) {
             return ['status' => 'okay', 'jobId' => $job->id];
         } else {
@@ -95,7 +95,7 @@ class Controller extends \yii\web\Controller
     /**
      * Endpoint to post a job to multiple queue.
      * @return mixed
-     * @throws \InvalidArgumentException Queue has to be instance of \Ukiepro\Yii2\Queue\MultipleQueue.
+     * @throws \InvalidArgumentException Queue has to be instance of \Vlodkow\Yii2\Queue\MultipleQueue.
      * @throws \yii\web\ServerErrorHttpException When failed to post the job.
      */
     public function actionPostToQueue()
@@ -107,7 +107,7 @@ class Controller extends \yii\web\Controller
         }
         $queue = $this->queue;
         if (!$queue instanceof MultipleQueue) {
-            throw new \InvalidArgumentException('Queue is not instance of \Ukiepro\Yii2\Queue\MultipleQueue');
+            throw new \InvalidArgumentException('Queue is not instance of \Vlodkow\Yii2\Queue\MultipleQueue');
         }
         /* @var $queue MultipleQueue */
         

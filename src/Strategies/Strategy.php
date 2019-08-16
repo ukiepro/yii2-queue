@@ -6,10 +6,10 @@
  * @since 2015.02.25
  */
 
-namespace Ukiepro\Yii2\Queue\Strategies;
+namespace Vlodkow\Yii2\Queue\Strategies;
 
-use Ukiepro\Yii2\Queue\Queues\MultipleQueue;
-use Ukiepro\Yii2\Queue\Job;
+use Vlodkow\Yii2\Queue\Queues\MultipleQueue;
+use Vlodkow\Yii2\Queue\Job;
 
 /**
  * Strategy is abstract class fo all strategy that is used for MultipleQueue.
@@ -22,7 +22,7 @@ abstract class Strategy extends \yii\base\BaseObject
 
     /**
      * Stores the queue.
-     * @var \Ukiepro\Yii2\Queue\MultipleQueue
+     * @var \Vlodkow\Yii2\Queue\MultipleQueue
      */
     protected $_queue;
 

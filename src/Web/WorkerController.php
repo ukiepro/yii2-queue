@@ -6,11 +6,11 @@
  * @author Adinata <mail.dieend@gmail.com>
  */
 
-namespace Ukiepro\Yii2\Queue\Web;
+namespace Vlodkow\Yii2\Queue\Web;
 
-use Ukiepro\Yii2\Queue\Job;
-use Ukiepro\Yii2\Queue\Queue;
-use Ukiepro\Yii2\Queue\Queues\DummyQueue;
+use Vlodkow\Yii2\Queue\Job;
+use Vlodkow\Yii2\Queue\Queue;
+use Vlodkow\Yii2\Queue\Queues\DummyQueue;
 use Yii;
 use yii\base\NotSupportedException;
 
@@ -57,7 +57,7 @@ class WorkerController extends \yii\web\Controller
     {
         $route = \Yii::$app->getRequest()->post('route');
         $data = \Yii::$app->getRequest()->post('data');
-        $job = new \Ukiepro\Yii2\Queue\Job([
+        $job = new \Vlodkow\Yii2\Queue\Job([
             'route' => $route,
             'data' => \yii\helpers\Json::decode($data),
         ]);
@@ -133,14 +133,14 @@ class WorkerController extends \yii\web\Controller
      * Returns the queue component.
      * This will check if there is a queue component from.
      * 
-     * @return \Ukiepro\Yii2\Queue\Queue
+     * @return \Vlodkow\Yii2\Queue\Queue
      */
     protected function getQueue() {
         $queueComponent = $this->getComponentParamFromRequest();
         if (empty($queueComponent)) {
             $queueComponent = $this->defaultQueue;
         }
-        return \yii\di\Instance::ensure($queueComponent, '\Ukiepro\Yii2\Queue\Queue');
+        return \yii\di\Instance::ensure($queueComponent, '\Vlodkow\Yii2\Queue\Queue');
     }
     
     /**

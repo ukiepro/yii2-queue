@@ -1,6 +1,6 @@
 <?php
 
-use Ukiepro\Yii2\Queue\Queues\DbQueue;
+use Vlodkow\Yii2\Queue\Queues\DbQueue;
 
 class MemoryQueueTest extends TestCase
 {
@@ -14,7 +14,7 @@ class MemoryQueueTest extends TestCase
         $this->mockApplication([
             'components' => [
                 'queue' => [
-                    'class' => '\Ukiepro\Yii2\Queue\Queues\MemoryQueue',
+                    'class' => '\Vlodkow\Yii2\Queue\Queues\MemoryQueue',
                 ]
             ]
         ]);
@@ -22,7 +22,7 @@ class MemoryQueueTest extends TestCase
     
     /**
      * 
-     * @return \Ukiepro\Yii2\Queue\Queues\MemoryQueue
+     * @return \Vlodkow\Yii2\Queue\Queues\MemoryQueue
      */
     protected function getQueue()
     {
@@ -35,13 +35,13 @@ class MemoryQueueTest extends TestCase
         
         $this->assertEquals(0, $queue->getSize());
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             self::$counter += 1;
         }]));
         
         $this->assertEquals(1, $queue->getSize());        
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             self::$counter += 1;
         }]));
         
@@ -58,7 +58,7 @@ class MemoryQueueTest extends TestCase
         
         $this->assertFalse($job);
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             $this->counter += 1;
         }]));
         
@@ -68,7 +68,7 @@ class MemoryQueueTest extends TestCase
         
         $this->assertEquals(0, $queue->getSize());
         
-        $this->assertTrue($job instanceof Ukiepro\Yii2\Queue\Job);
+        $this->assertTrue($job instanceof Vlodkow\Yii2\Queue\Job);
     }
     
     public function testRun()
@@ -81,19 +81,19 @@ class MemoryQueueTest extends TestCase
         
         $this->assertFalse($job);
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             self::$counter += 1;
         }]));
         
         $job = $queue->fetch();
 
-        $this->assertTrue($job instanceof Ukiepro\Yii2\Queue\Job);
+        $this->assertTrue($job instanceof Vlodkow\Yii2\Queue\Job);
         
         $queue->run($job);
         
         $this->assertEquals(1, self::$counter);
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             self::$counter += 2;
         }]));
         
@@ -110,11 +110,11 @@ class MemoryQueueTest extends TestCase
         
         $this->assertEquals(0, $queue->getSize());
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             self::$counter += 1;
         }]));
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             self::$counter += 1;
         }]));
         
@@ -140,7 +140,7 @@ class MemoryQueueTest extends TestCase
         
         $this->assertFalse($job);
         
-        $queue->post(new Ukiepro\Yii2\Queue\Job(['route' => function () {
+        $queue->post(new Vlodkow\Yii2\Queue\Job(['route' => function () {
             self::$counter += 1;
         }]));
         
@@ -148,7 +148,7 @@ class MemoryQueueTest extends TestCase
         
         $this->assertEquals(0, $queue->getSize());
         
-        $this->assertTrue($job instanceof Ukiepro\Yii2\Queue\Job);
+        $this->assertTrue($job instanceof Vlodkow\Yii2\Queue\Job);
         
         $queue->release($job);
         

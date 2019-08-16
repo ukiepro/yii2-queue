@@ -5,10 +5,10 @@
  * @since 2015.02.25
  */
 
-namespace Ukiepro\Yii2\Queue\Behaviors;
+namespace Vlodkow\Yii2\Queue\Behaviors;
 
 use yii\db\ActiveRecord;
-use Ukiepro\Yii2\Queue\Queue;
+use Vlodkow\Yii2\Queue\Queue;
 
 /**
  * DeferredEventRoutingBehavior provides matching between controller in
@@ -88,7 +88,7 @@ class DeferredEventRoutingBehavior extends \yii\base\Behavior
         $route = $handler[0];
         unset($handler[0]);
         $data = $handler;
-        $this->queue->post(new \Ukiepro\Yii2\Queue\Job([
+        $this->queue->post(new \Vlodkow\Yii2\Queue\Job([
             'route' => $route,
             'data' => $data
         ]));

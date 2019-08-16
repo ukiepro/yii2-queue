@@ -6,9 +6,9 @@
  * @since 2016.01.16
  */
 
-namespace Ukiepro\Yii2\Queue\Queues;
+namespace Vlodkow\Yii2\Queue\Queues;
 
-use Ukiepro\Yii2\Queue\Job;
+use Vlodkow\Yii2\Queue\Job;
 
 /**
  * DbQueue provides Yii2 database storing for Queue.
@@ -31,7 +31,7 @@ use Ukiepro\Yii2\Queue\Job;
  * @author Petra Barus <petra.barus@gmail.com>
  * @since 2016.01.16
  */
-class DbQueue extends \Ukiepro\Yii2\Queue\Queue
+class DbQueue extends \Vlodkow\Yii2\Queue\Queue
 {
     /**
      * Status when the job is ready.

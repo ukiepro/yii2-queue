@@ -5,7 +5,7 @@ class DeferredEventRoutingBehaviorTest extends PHPUnit_Framework_TestCase {
     public function testEventRouting() {
         
         $queue = Yii::$app->queue;
-        /* @var $queue \Ukiepro\Yii2\Queue\Queues\MemoryQueue */
+        /* @var $queue \Vlodkow\Yii2\Queue\Queues\MemoryQueue */
         $this->assertEquals(0, $queue->getSize());
         $model = new DeferredEventRoutingBehaviorTestModel();
         $model->trigger('eventTest');
@@ -42,7 +42,7 @@ class DeferredEventRoutingBehaviorTestModel extends \yii\base\Model {
     public function behaviors() {
         return [
             [
-                'class' => 'Ukiepro\Yii2\Queue\Behaviors\DeferredEventRoutingBehavior',
+                'class' => 'Vlodkow\Yii2\Queue\Behaviors\DeferredEventRoutingBehavior',
                 'events' => [
                     self::EVENT_TEST => ['test/index', 'id' => 1, 'test' => 2],
                     self::EVENT_TEST2 => function($model) {

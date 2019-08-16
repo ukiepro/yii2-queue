@@ -1,32 +1,31 @@
 {
-    "name": "ukiepro/yii2-queue",
-    "description": "Queue component for Yii2",
-    "license": "MIT",
-    "version": "1.3.6",
-    "authors": [
-        {
-            "name": "Ukiepro",
-            "email": "info@ukiepro.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=5.5.0",
-        "yiisoft/yii2": "*",
-        "symfony/process": ">=2.4",
-        "jeremeamia/SuperClosure": "~2.0",
-        "php-curl-class/php-curl-class": "*"
-    },
-    "require-dev": {
-        "flow/jsonpath": "dev-master",
-        "yiisoft/yii2-coding-standards": "*",
-        "videlalvaro/php-amqplib": "2.5.*",
-        "squizlabs/php_codesniffer": "2.*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Ukiepro\\Yii2\\Queue\\": "src/"
-        }
+  "name": "vlodkow/yii2-queue",
+  "description": "Queue component for Yii2",
+  "license": "MIT",
+  "version": "1.3.7",
+  "authors": [
+    {
+      "name": "Vlodkow",
+      "email": "vlodkow@gmail.com"
     }
-
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.5.0",
+    "yiisoft/yii2": "*",
+    "symfony/process": ">=2.4",
+    "jeremeamia/SuperClosure": "~2.0",
+    "php-curl-class/php-curl-class": "*"
+  },
+  "require-dev": {
+    "flow/jsonpath": "dev-master",
+    "yiisoft/yii2-coding-standards": "*",
+    "videlalvaro/php-amqplib": "2.5.*",
+    "squizlabs/php_codesniffer": "2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Vlodkow\\Yii2\\Queue\\": "src/"
+    }
+  }
 }

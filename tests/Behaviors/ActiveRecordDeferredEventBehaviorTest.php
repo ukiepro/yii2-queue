@@ -12,7 +12,7 @@ class ActiveRecordDeferredEventBehaviorTest extends PHPUnit_Framework_TestCase {
     
     public function testEventHandler() {
         $queue = Yii::$app->queue;
-        /* @var $queue \Ukiepro\Yii2\Queue\Queues\MemoryQueue */
+        /* @var $queue \Vlodkow\Yii2\Queue\Queues\MemoryQueue */
         $this->assertEquals(0, $queue->getSize());
         $object1 = new TestActiveRecord();
         $this->assertTrue($object1 instanceof TestActiveRecord);
@@ -61,7 +61,7 @@ class TestActiveRecord extends \yii\db\ActiveRecord {
     public function behaviors() {
         return [
             [
-                'class' => Ukiepro\Yii2\Queue\Behaviors\ActiveRecordDeferredEventBehavior::class,
+                'class' => Vlodkow\Yii2\Queue\Behaviors\ActiveRecordDeferredEventBehavior::class,
                 'events' => [
                     self::EVENT_AFTER_INSERT => 'deferAfterInsert',
                     self::EVENT_AFTER_UPDATE => 'deferAfterUpdate',
