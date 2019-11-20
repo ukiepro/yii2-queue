@@ -14,7 +14,7 @@
     "php": ">=5.5.0",
     "yiisoft/yii2": "*",
     "symfony/process": ">=2.4",
-    "jeremeamia/SuperClosure": "~2.0",
+    "jeremeamia/super_closure": "~2.0",
     "php-curl-class/php-curl-class": "*"
   },
   "require-dev": {
