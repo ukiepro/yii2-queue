@@ -125,7 +125,7 @@ class DbQueue extends \Vlodkow\Yii2\Queue\Queue
                     ->select('*')
                     ->from($this->tableName)
                     ->where(['status' => self::STATUS_READY])
-                    ->orderBy(['id' => SORT_ASC])
+                    ->orderBy(['timestamp' => SORT_ASC])
                     ->limit(1)
                     ->one($this->db);
     }
@@ -158,8 +158,9 @@ class DbQueue extends \Vlodkow\Yii2\Queue\Queue
      */
     protected function postJob(Job $job)
     {
+        $timestamp = empty($job->timestamp)? 'NOW()' : $job->timestamp;
         return $this->db->createCommand()->insert($this->tableName, [
-            'timestamp' => new \yii\db\Expression('NOW()'),
+            'timestamp' => new \yii\db\Expression($timestamp),
             'data' => $this->serialize($job),
         ])->execute() == 1;
     }

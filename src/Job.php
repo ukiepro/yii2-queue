@@ -55,6 +55,8 @@ class Job extends \yii\base\BaseObject
      */
     public $data = [];
 
+    public $timestamp;
+
     /**
      * whether the task is callable.
      * @return boolean
