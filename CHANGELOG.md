@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 1.3.8 (fork)
+- Added Job delay
+
 ## 1.3.2 (fork)
 - Added slack report
 
