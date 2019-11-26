@@ -125,6 +125,7 @@ class DbQueue extends \Vlodkow\Yii2\Queue\Queue
                     ->select('*')
                     ->from($this->tableName)
                     ->where(['status' => self::STATUS_READY])
+                    ->andWhere('timestamp <= NOW()')
                     ->orderBy(['timestamp' => SORT_ASC, 'id' => SORT_ASC])
                     ->limit(1)
                     ->one($this->db);
